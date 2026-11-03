@@ -1,0 +1,13 @@
+--- a/src/features/conversation/LegacyConversationAdapter.css
++++ b/src/features/conversation/LegacyConversationAdapter.css
+@@ -1,5 +1,10 @@
+ @import "../../styles/tokens.css";
+ @import "../../styles/a11y.css";
++
++/* Desktop: use available horizontal space for messages and composer. */
++@media (min-width: 900px) {
++  .efata-premium-legacy-mount { --efata-reading-width: 1120px; }
++}
+ 
+ .efata-premium-legacy-mount {
+   width: 100%; min-width: 0; min-height: 100dvh; overflow-x: hidden;

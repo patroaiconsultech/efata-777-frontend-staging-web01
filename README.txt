@@ -1,0 +1,1 @@
+DG-01 proposal-only. Replace src/features/conversation/LegacyConversationAdapter.css after AO-01 review and source baseline comparison. Rollback: restore original file. Desktop only >=900px. No deploy executed.
