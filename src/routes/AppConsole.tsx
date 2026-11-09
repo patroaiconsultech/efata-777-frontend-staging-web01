@@ -2183,11 +2183,14 @@ export default function AppConsole() {
   const executionTargetRole =
     executionMode === "human" ? "Conversa entre participantes" : selectedAgent?.role_label || "Seleção explícita necessária";
   const realtimeReason =
-    realtimeCapabilities?.orchestration_bridge?.reason_code ||
-    realtimeCapabilities?.realtime_session?.reason_code ||
-    realtimeCapabilities?.voice_input?.reason_code ||
-    realtimeCapabilities?.voice_output?.reason_code ||
-    realtimeCapabilities?.streaming?.reason_code ||
+    (!realtimeCapabilities?.realtime_session?.eligible &&
+      realtimeCapabilities?.realtime_session?.reason_code) ||
+    (!realtimeCapabilities?.orchestration_bridge?.eligible &&
+      realtimeCapabilities?.orchestration_bridge?.reason_code) ||
+    (!realtimeCapabilities?.voice_input?.eligible &&
+      realtimeCapabilities?.voice_input?.reason_code) ||
+    (!realtimeCapabilities?.voice_output?.eligible &&
+      realtimeCapabilities?.voice_output?.reason_code) ||
     "REALTIME_CAPABILITY_NOT_PROVEN";
   const realtimeReady = Boolean(
     realtimeCapabilities?.realtime_session?.eligible &&
